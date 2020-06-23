@@ -5,6 +5,7 @@ export default class PrismaZoom extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
+    id:id,
     style: PropTypes.object,
     minZoom: PropTypes.number,
     maxZoom: PropTypes.number,
@@ -22,6 +23,8 @@ export default class PrismaZoom extends PureComponent {
   static defaultProps = {
     // Class name to apply on the zoom wrapper
     className: null,
+    // ID for handling the component
+    id:id,
     // Style to apply on the zoom wrapper
     style: {},
     // Minimum zoom ratio
@@ -567,7 +570,7 @@ export default class PrismaZoom extends PureComponent {
   }
 
   render () {
-    const { className, children } = this.props
+    const { className, children ,id} = this.props
     const { zoom, posX, posY, cursor, transitionDuration } = this.state
 
     const style = {
@@ -582,6 +585,7 @@ export default class PrismaZoom extends PureComponent {
     const attr = {
       ref: 'layout',
       style: style,
+      id:id,
       className: className,
       onWheel: this.handleMouseWheel,
       onDoubleClick: this.handleDoubleClick,
